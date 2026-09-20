@@ -78,10 +78,12 @@ pub fn approve_mode() -> ApproveMode {
     let mode = Config::get_option("approve-mode");
     if mode == "password" {
         ApproveMode::Password
-    } else if mode == "click" {
-        ApproveMode::Click
-    } else {
+    } else if mode == "both" {
         ApproveMode::Both
+    } else {
+        // Web Zincir: varsayilan davranis "Click" - her baglanti isteginde
+        // musterinin ekranina onay penceresi duser, parola paylasilmaz.
+        ApproveMode::Click
     }
 }
 
